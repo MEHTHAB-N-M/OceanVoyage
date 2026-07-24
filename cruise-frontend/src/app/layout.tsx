@@ -1,6 +1,8 @@
 import React from 'react';
 import AppProviders from '@/components/providers/AppProviders';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'OceanVoyage – Cruise Booking',
   description:
