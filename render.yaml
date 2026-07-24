@@ -66,3 +66,5 @@ services:
         suffix: /api
       - key: PORT
         value: 10000 
+      - key: NODE_OPTIONS
+        value: --max-old-space-size=450
