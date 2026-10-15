@@ -46,8 +46,19 @@ async function bootstrap() {
   // =========================
   // CORS
   // =========================
+  const allowedOrigins = [
+    process.env.FRONTEND_URL || 'http://localhost:3000',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+  ];
+
   app.enableCors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin) || origin.startsWith('http://localhost:')) {
+        return callback(null, true);
+      }
+      return callback(null, true);
+    },
     credentials: true,
   });
 
@@ -116,12 +127,16 @@ async function bootstrap() {
   // CSRF PROTECTION (MANDATORY)
   // =========================
   app.use((req, res, next) => {
-  // ❗ Skip CSRF for AI endpoint
-  if (req.path.startsWith('/api/ai')) {
-    return next();
-  }
-  return csurf({ cookie: false })(req, res, next);
-});
+    // ❗ Skip CSRF for AI endpoint and read-only searches
+    if (
+      req.path.startsWith('/api/ai') ||
+      req.path === '/api/cruises/search' ||
+      req.path === '/cruises/search'
+    ) {
+      return next();
+    }
+    return csurf({ cookie: false })(req, res, next);
+  });
 
   // =========================
   // SWAGGER

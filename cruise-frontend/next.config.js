@@ -15,10 +15,12 @@ const nextConfig = {
     cpus: 1,
   },
   async rewrites() {
+    const rawApiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+    const backendOrigin = rawApiUrl.replace(/\/api\/?$/, '').replace(/\/+$/, '');
     return [
       {
         source: '/api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/api/:path*`,
+        destination: `${backendOrigin}/api/:path*`,
       },
     ];
   },

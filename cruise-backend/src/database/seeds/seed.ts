@@ -313,19 +313,19 @@ async function seed() {
   const packageRepo = ds.getRepository(Package);
   const packageMap = {
     'Carnival Cruise Line': [
-      { id: 'CARN-1', title: 'Fun Getaway', price: 1200, durationDays: 3, image: 'https://loremflickr.com/1600/900/cruise,ship,exterior?lock=1' },
-      { id: 'CARN-2', title: 'Family Fun Pack', price: 1400, durationDays: 5, image: 'https://loremflickr.com/1600/900/vacation,family?lock=2' },
-      { id: 'CARN-3', title: 'Luxury Escape', price: 1800, durationDays: 7, image: 'https://loremflickr.com/1600/900/luxury,cruise?lock=3' },
+      { id: 'CARN-1', title: 'Fun Getaway', price: 1200, durationDays: 3, image: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=1200&auto=format&fit=crop&q=80' },
+      { id: 'CARN-2', title: 'Family Fun Pack', price: 1400, durationDays: 5, image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&auto=format&fit=crop&q=80' },
+      { id: 'CARN-3', title: 'Luxury Escape', price: 1800, durationDays: 7, image: 'https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=1200&auto=format&fit=crop&q=80' },
     ],
     'Royal Caribbean International': [
-      { id: 'RC-1', title: 'Ocean Adventure', price: 1300, durationDays: 3, image: 'https://loremflickr.com/1600/900/ocean,adventure?lock=4' },
-      { id: 'RC-2', title: 'Premium Voyage', price: 1500, durationDays: 5, image: 'https://loremflickr.com/1600/900/premium,travel?lock=5' },
-      { id: 'RC-3', title: 'Ultimate Luxury', price: 2000, durationDays: 7, image: 'https://loremflickr.com/1600/900/luxury,yacht?lock=6' },
+      { id: 'RC-1', title: 'Ocean Adventure', price: 1300, durationDays: 3, image: 'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=1200&auto=format&fit=crop&q=80' },
+      { id: 'RC-2', title: 'Premium Voyage', price: 1500, durationDays: 5, image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&auto=format&fit=crop&q=80' },
+      { id: 'RC-3', title: 'Ultimate Luxury', price: 2000, durationDays: 7, image: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?w=1200&auto=format&fit=crop&q=80' },
     ],
     'Princess Cruises': [
-      { id: 'PR-1', title: 'Classic Sail', price: 1100, durationDays: 3, image: 'https://loremflickr.com/1600/900/sail,boat?lock=7' },
-      { id: 'PR-2', title: 'Romantic Escape', price: 1600, durationDays: 5, image: 'https://loremflickr.com/1600/900/romantic,sunset,ocean?lock=8' },
-      { id: 'PR-3', title: 'Elite Experience', price: 2200, durationDays: 7, image: 'https://loremflickr.com/1600/900/elite,travel?lock=9' },
+      { id: 'PR-1', title: 'Classic Sail', price: 1100, durationDays: 3, image: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=1200&auto=format&fit=crop&q=80' },
+      { id: 'PR-2', title: 'Romantic Escape', price: 1600, durationDays: 5, image: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1200&auto=format&fit=crop&q=80' },
+      { id: 'PR-3', title: 'Elite Experience', price: 2200, durationDays: 7, image: 'https://images.unsplash.com/photo-1533105079780-92b9be482077?w=1200&auto=format&fit=crop&q=80' },
     ]
   };
 

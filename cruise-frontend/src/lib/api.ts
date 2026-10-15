@@ -1,6 +1,12 @@
 let csrfToken: string | null = null;
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+const getBaseUrl = () => {
+  const envUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+  const clean = envUrl.replace(/\/+$/, '');
+  return clean.endsWith('/api') ? clean : `${clean}/api`;
+};
+
+const BASE_URL = getBaseUrl();
 
 // =========================
 // CSRF TOKEN
@@ -14,7 +20,10 @@ async function fetchCsrfToken() {
         const res = await fetch(`${BASE_URL}/auth/csrf-token`, {
           credentials: 'include',
         });
-        if (!res.ok) throw new Error('Failed to fetch CSRF token');
+        if (!res.ok) {
+          const errText = await res.text().catch(() => '');
+          throw new Error(`Failed to fetch CSRF token (${res.status}): ${errText}`);
+        }
         const data = await res.json();
         csrfToken = data.csrfToken;
       } finally {
